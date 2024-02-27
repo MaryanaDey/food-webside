@@ -1,9 +1,18 @@
 $(document).ready(function ($) {
     "use strict";
 
-    WebGLSampler.registerPlugin(ScrollTrigger);
+    jQuery(".menu-toggle").click(function () {
+        jQuery(".main-navigation").toggleClass("toggled");
+    });
 
-    var elemenFirst = document.querySelector('.site-header');
+    jQuery(".header-menu ul li a").click(function () {
+        jQuery(".main-navigation").removeClass("toggled");
+    });
+
+    gsap.registerPlugin(ScrollTrigger);
+
+
+ var elementFirst = document.querySelector('.site-header');
     ScrollTrigger.create({
         trigger: "body",
         start: "30px top",
@@ -13,7 +22,9 @@ $(document).ready(function ($) {
         onLeaveBack: () => myFunction(),
     });
 
+
     function myFunction() {
         elementFirst.classList.toggle('sticky_head');
     }
+
 })
